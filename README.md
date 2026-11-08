@@ -317,3 +317,76 @@
 
 ## API-First
 
+### Получение карточки товара
+GET /api/v1/assets/7f3c2a10-9b1e-4c8a-9d21-5e6f7a8b9c01
+
+
+200 OK
+```json
+{
+  "assetId": "7f3c2a10-9b1e-4c8a-9d21-5e6f7a8b9c01",
+  "title": "asset name",
+  "description": "asset descripttion",
+  "previewImages": [
+    "https://cdn.indiehub.example/assets/7f3c.../preview-1.jpg",
+    "https://cdn.indiehub.example/assets/7f3c.../preview-2.jpg"
+  ],
+  "price": 1000,
+  "currency": "RUB",
+  "licenseType": "COMMERCIAL",
+  "licenseLabel": "Коммерческая лицензия",
+  "category": {
+    "id": "3d-models",
+    "name": "3D-модели"
+  },
+  "tags": ["fantasy", "environment", "low-poly"],
+  "seller": {
+    "userId": "a1b2c3d4-...",
+    "displayName": "PolyForge",
+    "avatarUrl": "https://cdn.indiehub.example/avatars/polyforge.png",
+    "rating": 4.8
+  },
+  "rating": 4.7,
+  "reviewsCount": 32,
+  "salesCount": 148,
+  "status": "PUBLISHED",
+  "purchasedByCurrentUser": false, // если уже купил то true
+  "downloadAvailable": false, // если уже купил то true
+}
+```
+### Создание покупки ассета 
+
+POST /api/v1/purchases
+
+Тело запроса: 
+```json
+{
+  "assetId": "7f3c2a10-9b1e-4c8a-9d21-5e6f7a8b9c01",
+  "paymentMethod": "CARD",
+  "buyerEmail": "buyer@example.com",
+  "acceptLicenseTerms": true
+}
+```
+201 CREATED
+```json
+{
+  "purchaseId": "b9e8d7c6-5a4b-4c3d-9e2f-1a2b3c4d5e6f",
+  "status": "PENDING_PAYMENT",
+  "assetId": "7f3c2a10-9b1e-4c8a-9d21-5e6f7a8b9c01",
+  "amount": 1000,
+  "currency": "RUB",
+  "paymentUrl": "https://pay.yookassa.example/checkout/abc123",
+  "paymentExpiresAt": "2026-02-10T12:15:00Z",
+  "createdAt": "2026-02-10T11:45:00Z"
+}
+```
+
+После оплаты статус покупки меняется на PAID.
+В ответ на запрос POST /api/v1/purchases/{purchaseId}/download-link/
+Получаем ссылку на скачивание ассета  только если статус PAID
+```json
+{
+  "downloadUrl": "https://storage.indiehub.example/secure/asset.zip?token=...",
+  "expiresAt": "2026-02-10T12:15:00Z"
+}
+```
