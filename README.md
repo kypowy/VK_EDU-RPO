@@ -416,3 +416,17 @@ POST /api/v1/purchases
   "expiresAt": "2026-02-10T12:15:00Z"
 }
 ```
+
+# Задание 5
+Схема С4
+
+
+- уровень 1
+<img width="926" height="726" alt="image" src="https://github.com/user-attachments/assets/2af39d28-d0c8-411c-b4bc-60a77fcca318" />
+
+
+-уровень 2
+<img width="809" height="733" alt="image" src="https://github.com/user-attachments/assets/4553a8a5-185b-4ea1-a23a-b10e3fb0f996" />
+
+
+
