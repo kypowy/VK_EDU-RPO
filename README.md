@@ -295,3 +295,25 @@
 - Доступ к скачиванию файла не предоставляется.
 
 - Транзакция не создаётся (или помечается как «отменена»).
+
+## Wireframes
+
+- Страница каталога ассетов с поиском и фильтром по категориям
+<img width="1311" height="708" alt="image" src="https://github.com/user-attachments/assets/20cca853-0c24-4ef1-b28f-084897d0440d" />
+
+
+- Карточка товара
+<img width="604" height="754" alt="image" src="https://github.com/user-attachments/assets/c9b298a0-ae3e-424a-b3a3-5d94cc5730ee" />
+
+
+
+- Страница оплаты товара
+<img width="1064" height="527" alt="image" src="https://github.com/user-attachments/assets/f4c8729e-d871-44b2-afa7-896ab2872bcb" />
+
+
+- Страница успешной оплаты с ссылкой на скачивание ассета
+<img width="1064" height="524" alt="image" src="https://github.com/user-attachments/assets/5b99dcfd-fcaf-405c-bd9a-cc8a62c6d4d8" />
+
+
+## API-First
+
