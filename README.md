@@ -342,7 +342,7 @@ GET /api/v1/assets/7f3c2a10-9b1e-4c8a-9d21-5e6f7a8b9c01
   "tags": ["fantasy", "environment", "low-poly"],
   "seller": {
     "userId": "a1b2c3d4-...",
-    "displayName": "PolyForge",
+    "displayName": "kypowyn",
     "avatarUrl": "https://cdn.indiehub.example/avatars/polyforge.png",
     "rating": 4.8
   },
@@ -352,6 +352,19 @@ GET /api/v1/assets/7f3c2a10-9b1e-4c8a-9d21-5e6f7a8b9c01
   "status": "PUBLISHED",
   "purchasedByCurrentUser": false, // если уже купил то true
   "downloadAvailable": false, // если уже купил то true
+}
+```
+
+
+Либо же ошибка 404 NOT FOUND
+```json
+{
+  "error": {
+    "code": "ASSET_NOT_FOUND",
+    "message": "Ассет не найден или снят с публикации",
+    "details": {},
+    "requestId": "req_01HZX..."
+  }
 }
 ```
 ### Создание покупки ассета 
@@ -380,7 +393,20 @@ POST /api/v1/purchases
   "createdAt": "2026-02-10T11:45:00Z"
 }
 ```
+Либо же ошибка 400 Bad request
 
+```json
+{
+  "error": {
+    "code": "VALIDATION_ERROR",
+    "message": "Некорректные данные запроса",
+    "details": {
+      "acceptLicenseTerms": "Необходимо принять условия лицензии"
+    },
+    "requestId": "req_01HZX..."
+  }
+}
+```
 После оплаты статус покупки меняется на PAID.
 В ответ на запрос POST /api/v1/purchases/{purchaseId}/download-link/
 Получаем ссылку на скачивание ассета  только если статус PAID
